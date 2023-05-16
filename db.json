@@ -1,81 +1,100 @@
 {
-  "products": [
+  "users": [
     {
       "id": 1,
-      "nama": "Leptop",
-      "hargaJual": "8500000",
-      "hargaBeli": "8200000",
-      "stok": "20"
+      "name": "Lenna",
+      "email": "lenna@gamil.com",
+      "address": "Los Angeles",
+      "age": "24",
+      "phone": "+55 886 766 8617"
     },
     {
       "id": 2,
-      "nama": "Mouse",
-      "hargaJual": "85000",
-      "hargaBeli": "75000",
-      "stok": "20"
+      "name": "Terry",
+      "email": "terry@gamil.com",
+      "address": "Louisville",
+      "age": "33",
+      "phone": "+86 886 889 0258"
     },
     {
       "id": 3,
-      "nama": "Keyboard",
-      "hargaJual": "200000",
-      "hargaBeli": "180000",
-      "stok": "20"
+      "name": "Sheldon",
+      "email": "sheldon@gamil.com",
+      "address": "Jakarta",
+      "age": "26",
+      "phone": "+7 813 117 7139"
     },
     {
       "id": 4,
-      "nama": "Monitor",
-      "hargaJual": "3500000",
-      "hargaBeli": "3300000",
-      "stok": "5"
+      "name": "Terrill",
+      "email": "terrill@gamil.com",
+      "address": "Grass Valley",
+      "age": "29",
+      "phone": "+63 739 292 7942"
     },
     {
       "id": 6,
-      "nama": "Earphone",
-      "hargaJual": "250000",
-      "hargaBeli": "230000",
-      "stok": "22"
+      "name": "Miles",
+      "email": "miles@gamil.com",
+      "address": "Manchester",
+      "age": "45",
+      "phone": "+86 461 145 4186"
     },
     {
       "id": 7,
-      "nama": "Kamera",
-      "hargaJual": "7000000",
-      "hargaBeli": "6500000",
-      "stok": "7"
+      "name": "Mavis",
+      "email": "mavis@gamil.com",
+      "address": "Glendale",
+      "age": "20",
+      "phone": "+372 285 771 1911"
     },
     {
       "id": 8,
-      "nama": "Ram 8 ",
-      "hargaJual": "450000",
-      "hargaBeli": "340000",
-      "stok": "8"
+      "name": "Oleta",
+      "email": "oleta@gamil.com",
+      "address": "Manchester",
+      "age": "24",
+      "phone": "+62 640 802 776"
     },
     {
       "id": 9,
-      "nama": "Hard Disk",
-      "hargaJual": "550000",
-      "hargaBeli": "440000",
-      "stok": "8"
+      "name": "Assunta",
+      "email": "assunta@gamil.com",
+      "address": "Arvada",
+      "age": "35",
+      "phone": "+380 962 542 6549"
     },
     {
-      "nama": "Mouse Pad",
-      "hargaJual": "12000",
-      "hargaBeli": "10000",
-      "stok": "5",
-      "id": 10
+      "id": 10,
+      "name": "Trace",
+      "email": "trace@gamil.com",
+      "address": "West Windsor",
+      "age": "29",
+      "phone": "+1 609 937 3468"
     },
     {
-      "nama": "Bracket",
-      "hargaJual": "340000",
-      "hargaBeli": "320000",
-      "stok": "3",
-      "id": 11
+      "id": 11,
+      "name": "Enoch",
+      "email": "enoch@gamil.com",
+      "address": "Manchester",
+      "age": "24",
+      "phone": "+94 912 100 5118"
     },
     {
-      "nama": "Coling Pad ",
-      "hargaJual": "50000",
-      "hargaBeli": "44000",
-      "stok": "23",
-      "id": 12
+      "id": 12,
+      "name": "Jeanne",
+      "email": "jeanne@gamil.com",
+      "address": "Yarmouth",
+      "age": "24",
+      "phone": "+86 581 108 7855"
+    },
+    {
+      "id": 13,
+      "name": "Jony",
+      "email": "jony@gamil.com",
+      "address": "Madrid",
+      "age": "34",
+      "phone": "+83 637 372 883"
     }
   ]
 }

@@ -5,18 +5,19 @@ import { Link, useNavigate } from "react-router-dom";
 import { urlApi } from "../utils/api";
 
 const Create = () => {
-  const [nama, setNama] = useState("");
-  const [hargaJual, setHargaJual] = useState("");
-  const [hargaBeli, setHargaBeli] = useState("");
-  const [stok, setStok] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [address, setAddress] = useState("");
+  const [age, setAge] = useState("");
+  const [phone, setPhone] = useState("");
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     e.preventDefault();
-    const bodyFormData = { nama, hargaJual, hargaBeli, stok };
+    const bodyFormData = { name, email, address, age, phone };
 
     axios
-      .post(`${urlApi}products`, JSON.stringify(bodyFormData), {
+      .post(`${urlApi}users`, JSON.stringify(bodyFormData), {
         headers: {
           "Content-Type": "application/json",
         },
@@ -33,7 +34,7 @@ const Create = () => {
     <Container>
       <Row className="justify-content-center">
         <Col md="8" className="form-add">
-          <h3>Add Data</h3>
+          <h3>Add User</h3>
           <form onSubmit={handleInputChange}>
             <div className="mb-3">
               <label htmlFor="name" className="form-label">
@@ -44,54 +45,69 @@ const Create = () => {
                 className="form-control"
                 id="name"
                 required
-                placeholder="Nama Product"
-                value={nama}
-                onChange={(e) => setNama(e.target.value)}
+                placeholder="Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
               />
             </div>
 
             <div className="mb-3">
-              <label htmlFor="jual" className="form-label">
-                Harga Jual
+              <label htmlFor="email" className="form-label">
+                Email
               </label>
               <input
-                type="number"
+                type="email"
                 className="form-control"
-                id="jual"
+                id="email"
                 required
-                placeholder="Harga Jual"
-                value={hargaJual}
-                onChange={(e) => setHargaJual(e.target.value)}
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
 
             <div className="mb-3">
-              <label htmlFor="beli" className="form-label">
-                Harga Beli
+              <label htmlFor="address" className="form-label">
+                Address
               </label>
               <input
-                type="number"
+                type="text"
                 className="form-control"
-                id="beli"
-                placeholder="Harga Beli"
+                id="address"
+                placeholder="Address"
                 required
-                value={hargaBeli}
-                onChange={(e) => setHargaBeli(e.target.value)}
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
               />
             </div>
 
             <div className="mb-3">
-              <label htmlFor="stok" className="form-label">
-                Stok
+              <label htmlFor="age" className="form-label">
+                Age
               </label>
               <input
                 type="number"
                 className="form-control"
-                id="stok"
-                placeholder="Stok"
+                id="age"
+                placeholder="Age"
                 required
-                value={stok}
-                onChange={(e) => setStok(e.target.value)}
+                value={age}
+                onChange={(e) => setAge(e.target.value)}
+              />
+            </div>
+
+            <div className="mb-3">
+              <label htmlFor="phone" className="form-label">
+                Phone
+              </label>
+              <input
+                type="number"
+                className="form-control"
+                id="phone"
+                placeholder="Phone"
+                required
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
               />
             </div>
 

@@ -7,24 +7,24 @@ import { BsTrash3Fill, BsPencilSquare } from "react-icons/bs";
 import { BiPlus, BiSearchAlt2 } from "react-icons/bi";
 
 const Table = () => {
-  const [products, setProducts] = useState([]);
+  const [users, setUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const navigate = useNavigate();
-  const [search, setSearch] = useState(products);
+  const [search, setSearch] = useState(users);
   const [currentPage, setCurrentPage] = useState(1);
-  const recordsPage = 5;
+  const recordsPage = 10;
   const lastIndex = currentPage * recordsPage;
   const firstIndex = lastIndex - recordsPage;
   const records = search.slice(firstIndex, lastIndex);
   const nPage = Math.ceil(search.length / recordsPage);
   const numbers = [...Array(nPage + 1).keys()].slice(1);
 
-  const getAllProducts = async () => {
+  const getAllUsers = async () => {
     await axios
-      .get(`${urlApi}products`)
+      .get(`${urlApi}users`)
       .then((res) => {
-        setProducts(res.data);
+        setUsers(res.data);
         setSearch(res.data);
         setIsLoading(false);
       })
@@ -34,32 +34,13 @@ const Table = () => {
       });
   };
 
-  // const handleRemove = async (id) => {
-  //   await axios
-  //     .delete(`http://localhost:3002/products/${id}`)
-  //     .then((res) => {
-  //       if (res.status === 200) {
-  //         setProducts(
-  //           records.filter((item) => {
-  //             return item.id !== id;
-  //           })
-  //         );
-  //       } else {
-  //         return;
-  //       }
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
-
   const handleRemove = (id) => {
     if (window.confirm("Are you sure ?")) {
       axios
-        .delete(`http://localhost:3002/products/${id}`)
+        .delete(`${urlApi}users/${id}`)
         .then((res) => {
           if (res.status === 200) {
-            setProducts(
+            setUsers(
               records.filter((item) => {
                 return item.id !== id;
               })
@@ -78,15 +59,15 @@ const Table = () => {
   const handleSearch = (e) => {
     const searchValue = e.target.value;
     setSearch(
-      products.filter((item) =>
-        item.nama.toLowerCase().includes(searchValue.toLowerCase())
+      users.filter((item) =>
+        item.name.toLowerCase().includes(searchValue.toLowerCase())
       )
     );
   };
 
   useEffect(() => {
     setIsLoading(true);
-    getAllProducts();
+    getAllUsers();
   }, []);
 
   if (isLoading) return <h3 className="text-loading">Loading...</h3>;
@@ -106,16 +87,16 @@ const Table = () => {
                 Add
               </Link>
 
-              <div class="input-group w-25">
+              <div className="input-group w-25">
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Search..."
                   aria-label="Input group example"
                   aria-describedby="btnGroupAddon"
                   onChange={handleSearch}
                 />
-                <div class="input-group-text">
+                <div className="input-group-text">
                   <BiSearchAlt2 />
                 </div>
               </div>
@@ -124,11 +105,11 @@ const Table = () => {
               <thead className="text-white">
                 <tr>
                   <td className="text-center">No</td>
-                  <td>Foto</td>
-                  <td>Nama Produk</td>
-                  <td className="text-end">Harga Jual</td>
-                  <td className="text-end">Harga Beli</td>
-                  <td className="text-center">Stok</td>
+                  <td>Name</td>
+                  <td>Email</td>
+                  <td>Address</td>
+                  <td className="text-center">Age</td>
+                  <td className="text-center">Phone</td>
                   <td className="text-center">Action</td>
                 </tr>
               </thead>
@@ -137,18 +118,11 @@ const Table = () => {
                   records.map((item, index) => (
                     <tr key={item.id}>
                       <td className="text-center">{index + 1}</td>
-                      <td>
-                        {/* <img
-                          src={imgProduct}
-                          alt="product"
-                          className="img-fluid"
-                        /> */}
-                        Foto
-                      </td>
-                      <td>{item.nama}</td>
-                      <td className="text-end">Rp. {item.hargaJual}</td>
-                      <td className="text-end">Rp. {item.hargaBeli}</td>
-                      <td className="text-center">{item.stok}</td>
+                      <td>{item.name}</td>
+                      <td>{item.email}</td>
+                      <td>{item.address}</td>
+                      <td className="text-center">{item.age}</td>
+                      <td className="text-center">{item.phone}</td>
                       <td className="d-flex justify-content-center align-items-center gap-2 item-btns">
                         <Link
                           to={`/update/${item.id}`}

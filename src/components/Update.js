@@ -1,29 +1,32 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { Container, Row, Col } from "react-bootstrap";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import axios from "axios";
+import { urlApi } from "../utils/api";
 
 const Update = () => {
   const { id } = useParams();
   const [values, setValues] = useState({
     id: id,
-    nama: "",
-    hargaJual: "",
-    hargaBeli: "",
-    stok: "",
+    name: "",
+    email: "",
+    address: "",
+    age: "",
+    phone: "",
   });
   const navigate = useNavigate();
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3002/products/${id}`)
+      .get(`${urlApi}users/${id}`)
       .then((res) => {
         setValues({
           ...values,
-          nama: res.data.nama,
-          hargaJual: res.data.hargaJual,
-          hargaBeli: res.data.hargaBeli,
-          stok: res.data.stok,
+          name: res.data.name,
+          email: res.data.email,
+          address: res.data.address,
+          age: res.data.age,
+          phone: res.data.phone,
         });
       })
       .catch((err) => {
@@ -34,7 +37,7 @@ const Update = () => {
   const handleFormUpdate = (e) => {
     e.preventDefault();
     axios
-      .put(`http://localhost:3002/products/${id}`, values)
+      .put(`${urlApi}users/${id}`, values)
       .then((res) => {
         navigate("/");
       })
@@ -50,20 +53,15 @@ const Update = () => {
           <h3 className="mb-3">Update Data</h3>
           <form onSubmit={handleFormUpdate}>
             <div className="mb-3">
-              <label htmlFor="name" className="form-label">
-                Id
-              </label>
+              <label className="form-label">Id</label>
               <input
                 type="text"
                 className="form-control"
-                id="name"
                 disabled
                 value={values.id}
                 onChange={(e) => setValues({ ...values, id: e.target.value })}
-                placeholder="Nama Product"
               />
             </div>
-
             <div className="mb-3">
               <label htmlFor="name" className="form-label">
                 Name
@@ -73,55 +71,69 @@ const Update = () => {
                 className="form-control"
                 id="name"
                 required
-                value={values.nama}
-                onChange={(e) => setValues({ ...values, nama: e.target.value })}
-                placeholder="Nama Product"
+                value={values.name}
+                onChange={(e) => setValues({ ...values, name: e.target.value })}
+                placeholder="Name"
               />
             </div>
-
             <div className="mb-3">
-              <label htmlFor="jual" className="form-label">
-                Harga Jual
+              <label htmlFor="email" className="form-label">
+                Email
               </label>
               <input
-                type="number"
+                type="text"
                 className="form-control"
-                id="jual"
+                id="email"
                 required
-                value={values.hargaJual}
+                value={values.email}
                 onChange={(e) =>
-                  setValues({ ...values, hargaJual: e.target.value })
+                  setValues({ ...values, email: e.target.value })
                 }
-                placeholder="Harga Jual"
+                placeholder="Email"
               />
             </div>
-
             <div className="mb-3">
-              <label htmlFor="beli" className="form-label">
-                Harga Beli
+              <label htmlFor="address" className="form-label">
+                Address
               </label>
               <input
-                type="number"
+                type="text"
                 className="form-control"
-                value={values.hargaBeli}
+                value={values.address}
                 onChange={(e) =>
-                  setValues({ ...values, hargaBeli: e.target.value })
+                  setValues({ ...values, address: e.target.value })
                 }
-                placeholder="Harga Beli"
+                placeholder="Address"
                 required
               />
             </div>
 
             <div className="mb-3">
-              <label htmlFor="stok" className="form-label">
-                Stok
+              <label htmlFor="age" className="form-label">
+                Age
               </label>
               <input
                 type="number"
                 className="form-control"
-                value={values.stok}
-                onChange={(e) => setValues({ ...values, stok: e.target.value })}
-                placeholder="Harga Beli"
+                value={values.age}
+                onChange={(e) => setValues({ ...values, age: e.target.value })}
+                placeholder="Age"
+                required
+              />
+            </div>
+
+            <div className="mb-3">
+              <label htmlFor="phone" className="form-label">
+                Phone
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                value={values.phone}
+                onChange={(e) =>
+                  setValues({ ...values, phone: e.target.value })
+                }
+                placeholder="Phone"
                 required
               />
             </div>
