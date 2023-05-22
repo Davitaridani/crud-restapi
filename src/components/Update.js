@@ -12,13 +12,12 @@ const Update = () => {
     email: "",
     address: "",
     age: "",
-    phone: "",
   });
   const navigate = useNavigate();
 
   useEffect(() => {
     axios
-      .get(`${urlApi}users/${id}`)
+      .get(`${urlApi}/${id}`)
       .then((res) => {
         setValues({
           ...values,
@@ -26,7 +25,6 @@ const Update = () => {
           email: res.data.email,
           address: res.data.address,
           age: res.data.age,
-          phone: res.data.phone,
         });
       })
       .catch((err) => {
@@ -37,12 +35,12 @@ const Update = () => {
   const handleFormUpdate = (e) => {
     e.preventDefault();
     axios
-      .put(`${urlApi}users/${id}`, values)
+      .put(`${urlApi}/${id}`, values)
       .then((res) => {
         navigate("/");
       })
       .catch((err) => {
-        console.log(err);
+        console.log(err.message);
       });
   };
 
@@ -118,22 +116,6 @@ const Update = () => {
                 value={values.age}
                 onChange={(e) => setValues({ ...values, age: e.target.value })}
                 placeholder="Age"
-                required
-              />
-            </div>
-
-            <div className="mb-3">
-              <label htmlFor="phone" className="form-label">
-                Phone
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                value={values.phone}
-                onChange={(e) =>
-                  setValues({ ...values, phone: e.target.value })
-                }
-                placeholder="Phone"
                 required
               />
             </div>

@@ -9,15 +9,14 @@ const Create = () => {
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
   const [age, setAge] = useState("");
-  const [phone, setPhone] = useState("");
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     e.preventDefault();
-    const bodyFormData = { name, email, address, age, phone };
+    const bodyFormData = { name, email, address, age };
 
     axios
-      .post(`${urlApi}users`, JSON.stringify(bodyFormData), {
+      .post(`${urlApi}`, JSON.stringify(bodyFormData), {
         headers: {
           "Content-Type": "application/json",
         },
@@ -93,21 +92,6 @@ const Create = () => {
                 required
                 value={age}
                 onChange={(e) => setAge(e.target.value)}
-              />
-            </div>
-
-            <div className="mb-3">
-              <label htmlFor="phone" className="form-label">
-                Phone
-              </label>
-              <input
-                type="number"
-                className="form-control"
-                id="phone"
-                placeholder="Phone"
-                required
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
               />
             </div>
 

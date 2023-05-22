@@ -22,14 +22,14 @@ const Table = () => {
 
   const getAllUsers = async () => {
     await axios
-      .get(`${urlApi}users`)
+      .get(`${urlApi}`)
       .then((res) => {
         setUsers(res.data);
         setSearch(res.data);
         setIsLoading(false);
       })
       .catch((err) => {
-        setIsError(true);
+        setIsError(err.message);
         setIsLoading(false);
       });
   };
@@ -37,7 +37,7 @@ const Table = () => {
   const handleRemove = (id) => {
     if (window.confirm("Are you sure ?")) {
       axios
-        .delete(`${urlApi}users/${id}`)
+        .delete(`${urlApi}/${id}`)
         .then((res) => {
           if (res.status === 200) {
             setUsers(
@@ -109,7 +109,6 @@ const Table = () => {
                   <td>Email</td>
                   <td>Address</td>
                   <td className="text-center">Age</td>
-                  <td className="text-center">Phone</td>
                   <td className="text-center">Action</td>
                 </tr>
               </thead>
@@ -122,7 +121,6 @@ const Table = () => {
                       <td>{item.email}</td>
                       <td>{item.address}</td>
                       <td className="text-center">{item.age}</td>
-                      <td className="text-center">{item.phone}</td>
                       <td className="d-flex justify-content-center align-items-center gap-2 item-btns">
                         <Link
                           to={`/update/${item.id}`}

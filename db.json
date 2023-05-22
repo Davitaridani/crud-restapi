@@ -5,96 +5,84 @@
       "name": "Lenna",
       "email": "lenna@gamil.com",
       "address": "Los Angeles",
-      "age": "24",
-      "phone": "+55 886 766 8617"
+      "age": "24"
     },
     {
       "id": 2,
       "name": "Terry",
       "email": "terry@gamil.com",
       "address": "Louisville",
-      "age": "33",
-      "phone": "+86 886 889 0258"
+      "age": "33"
     },
     {
       "id": 3,
       "name": "Sheldon",
       "email": "sheldon@gamil.com",
       "address": "Jakarta",
-      "age": "26",
-      "phone": "+7 813 117 7139"
+      "age": "26"
     },
     {
       "id": 4,
       "name": "Terrill",
       "email": "terrill@gamil.com",
       "address": "Grass Valley",
-      "age": "29",
-      "phone": "+63 739 292 7942"
+      "age": "29"
     },
     {
       "id": 6,
       "name": "Miles",
       "email": "miles@gamil.com",
       "address": "Manchester",
-      "age": "45",
-      "phone": "+86 461 145 4186"
+      "age": "45"
     },
     {
       "id": 7,
       "name": "Mavis",
       "email": "mavis@gamil.com",
       "address": "Glendale",
-      "age": "20",
-      "phone": "+372 285 771 1911"
+      "age": "20"
     },
     {
       "id": 8,
       "name": "Oleta",
       "email": "oleta@gamil.com",
       "address": "Manchester",
-      "age": "24",
-      "phone": "+62 640 802 776"
+      "age": "24"
     },
     {
       "id": 9,
       "name": "Assunta",
       "email": "assunta@gamil.com",
       "address": "Arvada",
-      "age": "35",
-      "phone": "+380 962 542 6549"
+      "age": "35"
     },
     {
       "id": 10,
       "name": "Trace",
       "email": "trace@gamil.com",
       "address": "West Windsor",
-      "age": "29",
-      "phone": "+1 609 937 3468"
+      "age": "29"
     },
     {
       "id": 11,
       "name": "Enoch",
       "email": "enoch@gamil.com",
       "address": "Manchester",
-      "age": "24",
-      "phone": "+94 912 100 5118"
+      "age": "23"
     },
     {
       "id": 12,
       "name": "Jeanne",
       "email": "jeanne@gamil.com",
       "address": "Yarmouth",
-      "age": "24",
-      "phone": "+86 581 108 7855"
+      "age": "24"
     },
     {
       "id": 13,
       "name": "Jony",
       "email": "jony@gamil.com",
       "address": "Madrid",
-      "age": "34",
-      "phone": "+83 637 372 883"
+      "age": "34"
     }
   ]
 }
