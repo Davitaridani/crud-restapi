@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Table from "../components/Table";
+import Table from "../components/ListTable";
 import Create from "../components/Create";
 import Update from "../components/Update";
 

@@ -1,4 +1,3 @@
-import React from "react";
 import Router from "./routers/Router";
 import "./assets/scss/main.css";
 

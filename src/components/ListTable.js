@@ -6,10 +6,11 @@ import { urlApi } from "../utils/api";
 import { BsTrash3Fill, BsPencilSquare } from "react-icons/bs";
 import { BiPlus, BiSearchAlt2 } from "react-icons/bi";
 
-const Table = () => {
+const ListTable = () => {
   const [users, setUsers] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
+
   const navigate = useNavigate();
   const [search, setSearch] = useState(users);
   const [currentPage, setCurrentPage] = useState(1);
@@ -21,17 +22,16 @@ const Table = () => {
   const numbers = [...Array(nPage + 1).keys()].slice(1);
 
   const getAllUsers = async () => {
-    await axios
-      .get(`${urlApi}`)
-      .then((res) => {
-        setUsers(res.data);
-        setSearch(res.data);
-        setIsLoading(false);
-      })
-      .catch((err) => {
-        setIsError(err.message);
-        setIsLoading(false);
-      });
+    try {
+      const res = await axios.get(`${urlApi}`);
+      setIsLoading(false);
+      setUsers(res.data);
+      setSearch(res.data);
+    } catch (err) {
+      console.log(err);
+      setIsError(err);
+      setIsLoading(false);
+    }
   };
 
   const handleRemove = (id) => {
@@ -66,7 +66,6 @@ const Table = () => {
   };
 
   useEffect(() => {
-    setIsLoading(true);
     getAllUsers();
   }, []);
 
@@ -86,14 +85,11 @@ const Table = () => {
                 </span>
                 Add
               </Link>
-
               <div className="input-group w-25">
                 <input
                   type="text"
                   className="form-control"
                   placeholder="Search..."
-                  aria-label="Input group example"
-                  aria-describedby="btnGroupAddon"
                   onChange={handleSearch}
                 />
                 <div className="input-group-text">
@@ -192,4 +188,4 @@ const Table = () => {
   }
 };
 
-export default Table;
+export default ListTable;
